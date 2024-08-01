@@ -134,9 +134,10 @@ namespace TS.PageSlider
         {
             _scrollRect.horizontalNormalizedPosition = GetTargetPagePosition(index);
 
+            var previousPage = _currentPage;
             _targetPage = index;
             _currentPage = index;
-            OnPageChangeEnded?.Invoke(0, _currentPage);
+            OnPageChangeEnded?.Invoke(previousPage, _currentPage);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
