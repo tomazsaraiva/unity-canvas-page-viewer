@@ -18,7 +18,7 @@ namespace TS.PageSlider
 
         [Header("Children")]
 
-        // <summary>
+        /// <summary>
         /// The PageView component representing the content of this page container.
         /// </summary>
         [Tooltip("The PageView component representing the content of this page container")]
