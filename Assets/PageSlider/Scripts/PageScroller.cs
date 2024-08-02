@@ -29,6 +29,12 @@ namespace TS.PageSlider
         [Tooltip("Duration (in seconds) for the page snapping animation")]
         [SerializeField] private float _snapDuration = 0.3f;
 
+        /// <summary>
+        /// Teleport immediately or use animation for SetPage() transition.
+        /// </summary>
+        [Tooltip("Teleport immediately to new page instead of using animation when SetPage() is called")]
+        [SerializeField] private bool _teleportOnSetPage;
+
         [Header("Events")]
 
         /// <summary>
@@ -130,14 +136,35 @@ namespace TS.PageSlider
             }
         }
 
-        public void SetPage(int index)
+        public void SetPage(int index, bool forceTeleport = false)
         {
-            _scrollRect.horizontalNormalizedPosition = GetTargetPagePosition(index);
+            if (forceTeleport || _teleportOnSetPage)
+            {
+                _scrollRect.horizontalNormalizedPosition = GetTargetPagePosition(index);
 
-            var previousPage = _currentPage;
+                var previousPage = _currentPage;
+                _targetPage = index;
+                _currentPage = index;
+                OnPageChangeEnded?.Invoke(previousPage, _currentPage);
+                return;
+            }
+
+            // Calculate simulated drag direction and amount for the animation.
+            float dir = index - _currentPage;
+            if (dir < 0 && _currentPage == 0) return;
+
+            // Mark 'drag' start point.
             _targetPage = index;
-            _currentPage = index;
-            OnPageChangeEnded?.Invoke(previousPage, _currentPage);
+            OnBeginDrag(null);
+
+            // Move scrollRect slightly to correct direction so that animation can play correctly.
+            const float stepAmount = 0.01f;
+            var pageWidth = 1f / GetPageCount();
+            var dragStep = dir * stepAmount * pageWidth;
+            _scrollRect.horizontalNormalizedPosition += dragStep;
+
+            // Start the animation immediately.
+            OnEndDrag(null);
         }
 
         public void OnBeginDrag(PointerEventData eventData)

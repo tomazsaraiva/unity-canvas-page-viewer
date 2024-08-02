@@ -73,7 +73,7 @@ namespace TS.PageSlider
             yield return new WaitForEndOfFrame();
 
             if (_startPageIndex == 0) yield break;
-            _scroller.SetPage(_startPageIndex);
+            _scroller.SetPage(_startPageIndex, forceTeleport: false);
         }
 
 
