@@ -11,7 +11,7 @@ items:
   - TS.PageSlider.PageScroller.OnPageChangeEnded
   - TS.PageSlider.PageScroller.OnPageChangeStarted
   - TS.PageSlider.PageScroller.Rect
-  - TS.PageSlider.PageScroller.SetPage(System.Int32)
+  - TS.PageSlider.PageScroller.SetPage(System.Int32,System.Boolean)
   langs:
   - csharp
   - vb
@@ -59,7 +59,7 @@ items:
       repo: https://github.com/tomazsaraiva/unity-canvas-page-viewer.git
     id: OnPageChangeStarted
     path: ../Assets/PageSlider/Scripts/PageScroller.cs
-    startLine: 38
+    startLine: 44
   namespace: TS.PageSlider
   syntax:
     content: public UnityEvent<int, int> OnPageChangeStarted
@@ -84,7 +84,7 @@ items:
       repo: https://github.com/tomazsaraiva/unity-canvas-page-viewer.git
     id: OnPageChangeEnded
     path: ../Assets/PageSlider/Scripts/PageScroller.cs
-    startLine: 45
+    startLine: 51
   namespace: TS.PageSlider
   summary: >-
     Event triggered when a page change ends. 
@@ -114,7 +114,7 @@ items:
       repo: https://github.com/tomazsaraiva/unity-canvas-page-viewer.git
     id: Rect
     path: ../Assets/PageSlider/Scripts/PageScroller.cs
-    startLine: 50
+    startLine: 56
   namespace: TS.PageSlider
   summary: Gets the rectangle of the ScrollRect component used for scrolling.
   example: []
@@ -143,7 +143,7 @@ items:
       repo: https://github.com/tomazsaraiva/unity-canvas-page-viewer.git
     id: Content
     path: ../Assets/PageSlider/Scripts/PageScroller.cs
-    startLine: 67
+    startLine: 73
   namespace: TS.PageSlider
   summary: Gets the RectTransform of the content being scrolled within the ScrollRect.
   example: []
@@ -154,16 +154,16 @@ items:
       type: RectTransform
     content.vb: Public ReadOnly Property Content As RectTransform
   overload: TS.PageSlider.PageScroller.Content*
-- uid: TS.PageSlider.PageScroller.SetPage(System.Int32)
-  commentId: M:TS.PageSlider.PageScroller.SetPage(System.Int32)
-  id: SetPage(System.Int32)
+- uid: TS.PageSlider.PageScroller.SetPage(System.Int32,System.Boolean)
+  commentId: M:TS.PageSlider.PageScroller.SetPage(System.Int32,System.Boolean)
+  id: SetPage(System.Int32,System.Boolean)
   parent: TS.PageSlider.PageScroller
   langs:
   - csharp
   - vb
-  name: SetPage(int)
-  nameWithType: PageScroller.SetPage(int)
-  fullName: TS.PageSlider.PageScroller.SetPage(int)
+  name: SetPage(int, bool)
+  nameWithType: PageScroller.SetPage(int, bool)
+  fullName: TS.PageSlider.PageScroller.SetPage(int, bool)
   type: Method
   source:
     remote:
@@ -172,18 +172,20 @@ items:
       repo: https://github.com/tomazsaraiva/unity-canvas-page-viewer.git
     id: SetPage
     path: ../Assets/PageSlider/Scripts/PageScroller.cs
-    startLine: 132
+    startLine: 138
   namespace: TS.PageSlider
   syntax:
-    content: public void SetPage(int index)
+    content: public void SetPage(int index, bool forceTeleport = false)
     parameters:
     - id: index
       type: System.Int32
-    content.vb: Public Sub SetPage(index As Integer)
+    - id: forceTeleport
+      type: System.Boolean
+    content.vb: Public Sub SetPage(index As Integer, forceTeleport As Boolean = False)
   overload: TS.PageSlider.PageScroller.SetPage*
-  nameWithType.vb: PageScroller.SetPage(Integer)
-  fullName.vb: TS.PageSlider.PageScroller.SetPage(Integer)
-  name.vb: SetPage(Integer)
+  nameWithType.vb: PageScroller.SetPage(Integer, Boolean)
+  fullName.vb: TS.PageSlider.PageScroller.SetPage(Integer, Boolean)
+  name.vb: SetPage(Integer, Boolean)
 - uid: TS.PageSlider.PageScroller.OnBeginDrag(PointerEventData)
   commentId: M:TS.PageSlider.PageScroller.OnBeginDrag(PointerEventData)
   id: OnBeginDrag(PointerEventData)
@@ -202,7 +204,7 @@ items:
       repo: https://github.com/tomazsaraiva/unity-canvas-page-viewer.git
     id: OnBeginDrag
     path: ../Assets/PageSlider/Scripts/PageScroller.cs
-    startLine: 141
+    startLine: 169
   namespace: TS.PageSlider
   syntax:
     content: public void OnBeginDrag(PointerEventData eventData)
@@ -229,7 +231,7 @@ items:
       repo: https://github.com/tomazsaraiva/unity-canvas-page-viewer.git
     id: OnEndDrag
     path: ../Assets/PageSlider/Scripts/PageScroller.cs
-    startLine: 166
+    startLine: 194
   namespace: TS.PageSlider
   syntax:
     content: public void OnEndDrag(PointerEventData eventData)
@@ -371,7 +373,7 @@ references:
   fullName: RectTransform
 - uid: TS.PageSlider.PageScroller.SetPage*
   commentId: Overload:TS.PageSlider.PageScroller.SetPage
-  href: TS.PageSlider.PageScroller.html#TS_PageSlider_PageScroller_SetPage_System_Int32_
+  href: TS.PageSlider.PageScroller.html#TS_PageSlider_PageScroller_SetPage_System_Int32_System_Boolean_
   name: SetPage
   nameWithType: PageScroller.SetPage
   fullName: TS.PageSlider.PageScroller.SetPage
@@ -386,6 +388,17 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: System
   commentId: N:System
   isExternal: true

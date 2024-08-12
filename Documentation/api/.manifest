@@ -25,7 +25,7 @@
   "TS.PageSlider.PageScroller.OnPageChangeEnded": "TS.PageSlider.PageScroller.yml",
   "TS.PageSlider.PageScroller.OnPageChangeStarted": "TS.PageSlider.PageScroller.yml",
   "TS.PageSlider.PageScroller.Rect": "TS.PageSlider.PageScroller.yml",
-  "TS.PageSlider.PageScroller.SetPage(System.Int32)": "TS.PageSlider.PageScroller.yml",
+  "TS.PageSlider.PageScroller.SetPage(System.Int32,System.Boolean)": "TS.PageSlider.PageScroller.yml",
   "TS.PageSlider.PageSlider": "TS.PageSlider.PageSlider.yml",
   "TS.PageSlider.PageSlider.AddPage(RectTransform)": "TS.PageSlider.PageSlider.yml",
   "TS.PageSlider.PageSlider.Clear": "TS.PageSlider.PageSlider.yml",

@@ -21,6 +21,7 @@ You can create a Page Slider in two ways: either with a predefined set of pages 
 ## Helpful links
 
 - For a more in-depth explanation, check out this [video](https://youtu.be/Z3K6qApmTsY).
+- Explore the [Demo Scenes](docs/demo-scenes.md) to see practical examples of how to implement different use cases.
 - Explore the [API Reference](../api/TS.PageSlider.PageSlider.html) for more details.
 - Modify the source code available on [GitHub](https://github.com/tomazsaraiva/unity-canvas-page-slider).
 - Install directly from the [Unity Asset Store](https://assetstore.unity.com/packages/tools/gui/page-slider-241341).
