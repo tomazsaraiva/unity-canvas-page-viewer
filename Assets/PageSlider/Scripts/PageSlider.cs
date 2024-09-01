@@ -65,6 +65,7 @@ namespace TS.PageSlider
         {
             _scroller = FindScroller();
         }
+
         private IEnumerator Start()
         {
             _scroller.OnPageChangeStarted.AddListener(PageScroller_PageChangeStarted);
@@ -72,8 +73,13 @@ namespace TS.PageSlider
 
             yield return new WaitForEndOfFrame();
 
-            if (_startPageIndex == 0) yield break;
-            _scroller.SetPage(_startPageIndex, forceTeleport: false);
+            if (_startPageIndex == 0)
+            {
+                OnPageChanged?.Invoke(_pages[0]);
+                yield break;
+            }
+
+            _scroller.SetPage(_startPageIndex, forceTeleport: true);
         }
 
 
