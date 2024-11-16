@@ -48,6 +48,7 @@ namespace TS.PageSlider
             content.offsetMin = Vector2.zero;
             content.offsetMax = Vector2.zero;
             content.anchoredPosition = Vector2.zero;
+            content.anchoredPosition3D = Vector3.zero;
 
             content.localScale = Vector3.one;
 

@@ -106,9 +106,11 @@ namespace TS.PageSlider
             // Get the RectTransform component of the newly created page.
             // Set the size of the page's RectTransform to match the size of the scroller's viewport.
             // Set the page's local scale to one (no scaling).
+            // Set the RectTransform's position to the anchor point with no offset in 3D space
             var rectTransform = page.GetComponent<RectTransform>();
             rectTransform.sizeDelta = _scroller.Rect.size;
             rectTransform.localScale = Vector3.one;
+            rectTransform.anchoredPosition3D = Vector3.zero;
 
             // Get the PageContainer component from the page GameObject.
             // Assign the provided content (RectTransform) to the PageContainer.
